@@ -1,0 +1,47 @@
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="cocktail-show-card">
+        <h1><%= @cocktail.name %></h1>
+        <%= link_to 'Back to all cocktails', cocktails_path %>
+      </div>
+      <div class="cocktail-show-card">
+        <h3>Recipe</h3>
+
+        <% @cocktail.doses.each do |dose| %>
+          <p><%= dose.ingredient.name %> -- <%= dose.description %>
+          <span><%= link_to dose_path(dose), method: :delete, data: { confirm: 'Are you sure?'} do %>
+            <%= icon('fa', 'trash') %>
+            <% end %>
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="cocktail-show-card">
+        <h5><%= link_to 'Add a new ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-success" %>
+
+        </h5>
+        <div class="flex-align">
+          <h6 class="no-mb">Share</h6>
+          <div class="flex">
+            <%= link_to 'https://www.facebook.com' do %>
+              <%= icon('fab', 'facebook-square', class: 'fa-2x mr-2') %>
+            <% end %>
+            <%= link_to 'https://twitter.com' do %>
+              <%= icon('fab', 'twitter-square', class: 'fa-2x mr-2') %>
+            <% end %>
+            <%= link_to 'https://pinterest.com' do %>
+              <%= icon('fab', 'pinterest-square', class: 'fa-2x mr-2') %>
+            <% end %>
+            <%= link_to '#' do %>
+              <%= icon('fa', 'envelope-square', class: 'fa-2x') %>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
