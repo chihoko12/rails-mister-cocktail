@@ -26,6 +26,7 @@ before_action :set_cocktail, only: [:show]
   def show
     @dose = Dose.new
     @ingredient = Ingredient.new
+    @review = Review.new
   end
 
   private
