@@ -17,4 +17,8 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 import 'bootstrap';
 import { initSelect2 } from '../components/select';
-initSelect2();
+
+document.addEventListener('turbolinks:load', () => {
+  initSelect2();
+});
+

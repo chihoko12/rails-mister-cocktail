@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-before_action :set_cocktail, only: [:show]
+before_action :set_cocktail, only: [:show, :edit, :update]
 
   def index
     if params[:query].present?
@@ -29,6 +29,14 @@ before_action :set_cocktail, only: [:show]
     @review = Review.new
   end
 
+  def edit
+  end
+
+  def update
+    @restaurant.update(restaurant_params)
+    redirect_to restaurant_path(@restaurant)
+  end
+
   private
 
   def set_cocktail
@@ -36,6 +44,6 @@ before_action :set_cocktail, only: [:show]
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
