@@ -1,17 +1,10 @@
-<%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group line-inline">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i>
-    </button>
-  </div>
-<% end %>
-
-<div class="search-bar-home">
+<div class="search-form-control form-group line-inline">
   <div class="input">
     <%= form_tag cocktails_path, method: :get, local:true, id: "search-form" do %>
-    <%= text_field_tag :name, params[:name], class: "form-control border-radius-search", placeholder: "Whhich cocktail?" %>
-    <%= submit_tag "submit", class: "btn btn-primary border-radius-search-btn", id: "search-submit" %>
-    <% end %>
+    <%= text_field_tag :name, params[:name], class: "form-control border-radius-search", placeholder: "Which cocktail?" %>
+    <button class="btn btn btn-primary border-radius-search">
+      <span class="fas fa-search"></span>
+    </button>
+  <% end %>
   </div>
 </div>
