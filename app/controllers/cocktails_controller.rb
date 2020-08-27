@@ -1,6 +1,9 @@
 class CocktailsController < ApplicationController
 before_action :set_cocktail, only: [:show, :edit, :update]
 
+  def home
+  end
+
   def index
     if params[:query].present?
       @query = params[:query]
