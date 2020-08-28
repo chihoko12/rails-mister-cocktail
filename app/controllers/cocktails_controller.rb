@@ -7,7 +7,7 @@ before_action :set_cocktail, only: [:show, :edit, :update]
   def index
     if params[:query].present?
       @query = params[:query]
-      @cocktails = Cocktail.where("name iLike '%#{params[:query]}%'")
+      @cocktails = Cocktail.where("name iLike '%#{@query}%'")
     else
       @cocktails = Cocktail.all
     end
