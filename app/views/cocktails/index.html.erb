@@ -16,9 +16,9 @@
           <%= link_to (cocktail_path(cocktail)) do%>
           <div class="card-cocktail">
               <% if cocktail.photo.attached? %>
-                <%= cl_image_tag cocktail.photo.key, crop: :fill, class:'card-img', alt: "cocktail" %>
+                <%= cl_image_tag cocktail.photo.key, crop: :fill, class:'card-img', alt: "cocktail"%>
               <% else %>
-                <%= image_tag "drink.png", crop: :fill, class:'card-img', alt: "cocktail img" %>
+                <%= image_tag "drink.png", crop: :fill, class:'card-img', alt: "cocktail img"%>
               <% end %>
               <h2><%= cocktail.name %></h2>
             </div>

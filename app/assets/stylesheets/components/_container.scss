@@ -3,15 +3,15 @@ body {
 }
 
 a {
-  color: white;
+  color:black;
 }
 
 a:hover {
-  color: #ffcac2;
+  color: black;
   text-decoration: none;
 }
 
-.container {
+.container h1, h2, h3, h4, h5, h6, p {
   color: white;
 }
 
@@ -24,7 +24,6 @@ a:hover {
 .container p {
   font-size: 16px;
   font-weight: leighter;
-  color: rgb(255,255,255);
   opacity: 0.6;
   margin-bottom: 30px;
 }
