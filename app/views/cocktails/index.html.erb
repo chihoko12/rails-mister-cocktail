@@ -1,28 +1,35 @@
 <div class="container">
-  <div class="row">
-      <h2>All our cocktails</h2>
+  <div class="row cocktail-index">
+      <h2>Our cocktails</h2>
       <div class="search">
         <% if @query %>
-          <h4>You searched for <strong><%= @query %></strong>. We found <%= @cocktails.count %> flats out of our <%= Cocktail.count %> on our website.</h4>
+          <h4>Found <u><%= @cocktails.count %> <%= @query %></u> on our website.</h4>
         <% else %>
-          <h4>All <%= Cocktail.count %> <%= Cocktail.count == 1 ? 'cocktail' : 'cocktails' %>.</h4>
+          <h4>All <%= pluralize @cocktails.count, 'cocktail' %></h4>
         <% end %>
       </div>
   </div>
 
   <div class="row">
+    <div class="cards grid-cocktails">
         <% @cocktails.each do |cocktail| %>
-            <div class="col-12 col-md-6 col-lg-3">
-
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/500x400/?cocktail');">
-            <div class="card-description">
-              <%= link_to cocktail_path(cocktail) do%>
-              <h2><%= cocktail.name %></h2>
+          <%= link_to (cocktail_path(cocktail)) do%>
+          <div class="card-cocktail">
+              <% if cocktail.photo.attached? %>
+                <%= cl_image_tag cocktail.photo.key, crop: :fill, class:'card-img', alt: "cocktail" %>
+              <% else %>
+                <%= image_tag "drink.png", crop: :fill, class:'card-img', alt: "cocktail img" %>
               <% end %>
+              <h2><%= cocktail.name %></h2>
             </div>
-          </div>
-      </div>
+
+          <% end %>
         <% end %>
-    </div>
+      </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <button type="button" class="btn btn-light"><%= link_to "Back to home", root_path %></button>
+  </div>
 
   </div>

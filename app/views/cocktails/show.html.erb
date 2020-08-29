@@ -1,6 +1,19 @@
-<div class="banner cocktail-name" style="background-image: linear-gradient(rgba(40,40,40,0.8), rgba(40,40,40,0.8)), url('<%= image_path 'cocktails.jpg' %>');">
-  <div class="banner-content">
-  <h1><%= @cocktail.name %></h1>
+<div class="container">
+  <div class="row row-cocktail">
+    <div class="col-12">
+      <div class="d-flex show-cocktail-title" style="margin-top: 5%">
+        <h1><%= @cocktail.name %></h1>
+      </div>
+    </div>
+    <div>
+      <% if @cocktail.photo.attached? %>
+        <%= cl_image_tag @cocktail.photo.key, height: 500, width: 1100, crop: :fill %>
+      <% else %>
+        <%= image_tag 'drink.png'%>
+      <% end %>
+    </div>
+
+  </div>
   </div>
 </div>
 

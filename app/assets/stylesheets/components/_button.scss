@@ -1,3 +1,13 @@
+#btn-add {
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+#btn-search{
+  border: none;
+}
+
 .btn {
   background-color: #F7F5DD;
   color: black;
@@ -6,8 +16,4 @@
 .btn:hover {
   background-color: #ffcac2;
   color: black;
-}
-
-#btn-add {
-  width: 100%;
 }

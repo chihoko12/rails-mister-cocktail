@@ -2,7 +2,7 @@
   <div class="input">
     <%= form_tag cocktails_path, method: :get, local:true, id: "search-form" do %>
     <%= text_field_tag :name, params[:name], class: "form-control border-radius-search", placeholder: "Which cocktail?" %>
-    <button class="btn btn btn-primary border-radius-search">
+    <button class="btn btn btn-primary border-radius-search" id="btn-search">
       <span class="fas fa-search"></span>
     </button>
   <% end %>
