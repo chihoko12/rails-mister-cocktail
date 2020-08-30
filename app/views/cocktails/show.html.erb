@@ -39,8 +39,8 @@
 
         <%= render "doses/form"%>
 
-        <%= link_to 'Add a new ingredient',  new_ingredient_path(:cocktail_id => params[:id]), class: "btn btn-light mt-3 mb-3" %>
-        <%= link_to 'Back to all cocktails', cocktails_path, class: "btn btn-light mt-3" %>
+        <div><%= link_to 'Add a new ingredient',  new_ingredient_path(:cocktail_id => params[:id]), class: "btn btn-light mt-3 mb-3" %></div>
+        <div><%= link_to 'Back to all cocktails', cocktails_path, class: "btn btn-light mt-3" %></div>
       </div>
 
     </div>
