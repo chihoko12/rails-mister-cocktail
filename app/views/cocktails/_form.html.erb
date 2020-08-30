@@ -1,6 +1,6 @@
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <%= f.input :photo, as: :file, class: "cocktail-add-photo" %>
+  <%= f.button :submit, class: "btn btn-light rounded mr-3" %>
+  <%= link_to 'Cancel', :back, {:class => "btn btn-light"} %>
 <% end %>

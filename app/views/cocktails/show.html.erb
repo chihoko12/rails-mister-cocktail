@@ -11,38 +11,6 @@
         <% else %>
           <%= image_tag 'drink.png', class: "card-category" %>
         <% end %>
-
-      <div class="review">
-        <div class="d-flex justify-content-center">
-          <h4>Reviews</h4>
-        </div>
-
-        <div class="d-flex justify-content-center">
-        <% if @cocktail.reviews.empty? %>
-          <p>Be the first to let a review</p>
-        <% else %>
-          <ul class="list-group">
-            <% @cocktail.reviews.each do |review| %>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="badge badge-primary badge-pill">
-                <% counter = 0 %>
-                <% 5.times do %>
-                  <i class="fa" <%= review.rating > counter ? 'fa-star' : 'fa=star-0' %>"></i>
-                  <% counter += 1 %>
-                <% end %>
-              </span>
-              <%= review.content %>
-            </li>
-          <% end %>
-          </ul>
-        <% end %>
-      </div>
-
-      <div class="d-flex justify-content-center">
-        <%= link_to 'Back to all cocktails', cocktails_path, class: "btn btn-light" %>
-      </div>
-    </div>
-
       </div>
 
       <div class="col-md-6">
@@ -50,17 +18,17 @@
         <table class="table table-bordered">
           <tbody>
             <thead>
-              <th>Ingredient</th>
               <th>Dose</th>
+              <th>Ingredient</th>
               <th>Delete</th>
             </thead>
 
             <% @cocktail.doses.each do |dose| %>
               <tr>
-                <td><%= dose.ingredient.name %></td>
                 <td><%= dose.description %></td>
+                <td><%= dose.ingredient.name %></td>
                 <td>
-                  <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-icon" do %>
                     <%= icon('fa', 'trash') %>
                   <% end %>
                 </td>
@@ -68,8 +36,29 @@
             <% end %>
           </tbody>
         </table>
-        <%= link_to 'Add a new ingredient', edit_cocktail_path(@cocktail), class: "btn btn-light" %>
-        </div>
+
+        <%= render "doses/form"%>
+
+        <%= link_to 'Add a new ingredient',  new_ingredient_path(:cocktail_id => params[:id]), class: "btn btn-light mt-3 mb-3" %>
+        <%= link_to 'Back to all cocktails', cocktails_path, class: "btn btn-light mt-3" %>
+      </div>
+
+    </div>
+
+    <div class="row review d-flex flex-column">
+      <div class="review-title">
+        <h4>Reviews</h4>
+      </div>
+
+      <% if @cocktail.reviews.empty? %>
+        <p>Add a first review</p>
+      <% else %>
+        <%= render 'shared/reviews_cocktail' %>
+      <% end %>
+      <%= render 'reviews/form'  %>
+
+    </div>
+
     </div>
 
   </div>

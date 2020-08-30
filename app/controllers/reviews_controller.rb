@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_cocktail, only: :create
 
+  def new
+    @review = Review.new
+  end
+
   def create
     @review = Review.new(review_params)
     @review.cocktail = @cocktail
@@ -21,5 +25,4 @@ class ReviewsController < ApplicationController
   def set_cocktail
     @cocktail = Cocktail.find(params[:cocktail_id])
   end
-
 end

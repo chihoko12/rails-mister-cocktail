@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="cocktail-form">
+        <h1>Add a new Ingredient</h1>
+
+        <div class="mt-3 mb-3 cocktail-new-form">
+          <%= simple_form_for @ingredient do |f| %>
+            <%= f.input :name, placeholder: "spirits" %>
+            <%= f.input :cocktail_id, :as => :hidden, :input_html => { :value => params[:cocktail_id] } %>
+            <%= f.submit "Add", class: "btn btn-light mt-3" %>
+          <% end %>
+        </div>
+
+        </div>
+    <%= link_to 'Back', cocktail_path(@cocktail), class:"btn btn-light mt-3" %>
+      </div>
+  </div>
+</div>

@@ -32,14 +32,6 @@ before_action :set_cocktail, only: [:show, :edit, :update]
     @review = Review.new
   end
 
-  def edit
-  end
-
-  def update
-    @restaurant.update(restaurant_params)
-    redirect_to restaurant_path(@restaurant)
-  end
-
   private
 
   def set_cocktail

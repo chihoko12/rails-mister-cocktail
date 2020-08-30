@@ -1,0 +1,6 @@
+<%= simple_form_for @ingredient do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit, class: "btn btn-light mt-3 mb-3" %>
+<% end %>
+
+<%= link_to 'Back', cocktail_path(@cocktail), class:"btn btn-light mt-3" %>

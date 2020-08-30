@@ -1,0 +1,17 @@
+<div class="reviews-show-container mb-3">
+  <% @cocktail.reviews.each do |review| %>
+    <div class="review-card">
+      <div class="review-rating">
+        <% review.rating.to_i.times do %>
+        <i class="fas fa-star" style="color: #ffa931"></i>
+        <% end %>
+      </div>
+      <div class="review-content">
+        <%= review.content %>
+      </div>
+      <div class="review-date">
+        <p><%= review.created_at.strftime("%a, %d.%b.%y") %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,10 @@
 class DosesController < ApplicationController
-before_action :set_dose, only: :destroy
-before_action :set_cocktails, only: :create
+before_action :set_dose, only: [:edit, :update, :destroy]
+before_action :set_cocktails, only: [:edit, :update, :create]
+
+  def new
+    Dose.new
+  end
 
   def create
     @dose = Dose.new(dose_params)

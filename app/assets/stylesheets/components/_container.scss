@@ -11,12 +11,20 @@ a:hover {
   text-decoration: none;
 }
 
-.container h1, h2, h3, h4, h5, h6, p {
+.container h1, h2, h3, h4, h5, h6, p ,label {
   color: white;
 }
 
+.delete-icon {
+  color: white;
+}
+
+.delete-icon:hover{
+color:#ffcac2;
+}
+
 .container h1 {
-  font-size: 50px;
+  font-size: 42px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0,0,0,0.2);
 }
