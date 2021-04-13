@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-before_action :set_cocktail, only: [:show, :edit, :update]
+before_action :set_cocktail, only: [:show, :destroy]
 
   def home
   end
@@ -30,6 +30,11 @@ before_action :set_cocktail, only: [:show, :edit, :update]
     @dose = Dose.new
     @ingredient = Ingredient.new
     @review = Review.new
+  end
+
+  def destroy
+    @cocktail.destroy
+    redirect_to root_path
   end
 
   private
