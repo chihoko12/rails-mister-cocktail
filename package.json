@@ -40,6 +40,6 @@
     "css-loader": "^6.10.0",
     "mini-css-extract-plugin": "^2.8.0",
     "style-loader": "^3.3.4",
-    "webpack-dev-server": "4"
+    "webpack-dev-server": "5"
   }
 }
